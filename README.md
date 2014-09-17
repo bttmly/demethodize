@@ -1,4 +1,7 @@
 # Demethodize
+
+`npm install demethodize`
+
 Demethodizing allows you to use methods as generics. You can just use call and apply to do this, like so:
 ```js
 Array.prototype.map.call( 'abcdef', function ( letter ) {
