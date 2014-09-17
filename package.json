@@ -1,0 +1,19 @@
+{
+  "name": "demethodize",
+  "version": "0.2.0",
+  "description": "Decontextualize your methods",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec test.js",
+    "bench": "node bench.js",
+    "bench100": "node bench.js 100",
+    "bench1000": "node bench.js 1000"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "benchmark": "^1.0.0",
+    "chai": "^1.9.1",
+    "mocha": "^1.21.4"
+  }
+}
