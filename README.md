@@ -18,6 +18,16 @@ map( '123456', function ( n) {
 }); // [2, 3, 4, 5, 6, 7]
 ```
 
+There's an added method, `demethodize.functional`, which switches the object being operated on to the last position in the arguments array (rather than first). This is great for partial application and functional programming in general.
+
+```js
+var slice = demethodize.functional( [].slice );
+var dropFirstAndLastTwo = slice.bind( null, 2, -2 );
+
+dropFirstAndLastTwo( 'abcdefgh' ); // ['c', 'd', 'e', 'f']
+dropFirstAndLastTwo( 'ijklm' ); // ['k']
+```
+
 I've benchmarked a number of equivalent implementations for speed, and am using an implementation with `.apply()` as it is fastest.
 
 **Example benchmark output** (see bench.js for implementations)
