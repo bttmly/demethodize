@@ -1,4 +1,4 @@
-# Demethodize
+# Demethodize [![Build Status](https://travis-ci.org/nickb1080/demethodize.svg?branch=master)](https://travis-ci.org/nickb1080/demethodize)
 
 `npm install demethodize`
 
@@ -31,7 +31,7 @@ dropFirstAndLastTwo( 'abcdefgh' ); // ['c', 'd', 'e', 'f']
 dropFirstAndLastTwo( 'ijklm' ); // ['k']
 ```
 
-I've benchmarked a number of equivalent implementations for speed, and am using an implementation with `.apply()` as it is fastest.
+I've benchmarked a number of equivalent implementations for speed, and am using an implementation with `.apply()` as it is fastest. (Actually, more recent tests show the call-spread implementation to be fastest, but it's not completely generalizable)
 
 **Example benchmark output** (see bench.js for implementations)
 ```
