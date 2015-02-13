@@ -9,7 +9,7 @@
     "bench": "node bench.js",
     "bench100": "node bench.js 100",
     "bench1000": "node bench.js 1000",
-    "cover": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- ./test/ -R spec",
+    "cover": "node --harmony ./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha -- ./test.js -R spec",
     "codecovio": "npm run cover; cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js --verbose"
   },
   "author": "Nick Bottomley (github.com/nickb1080)",
