@@ -1,4 +1,6 @@
-# Demethodize [![Build Status](https://travis-ci.org/nickb1080/demethodize.svg?branch=master)](https://travis-ci.org/nickb1080/demethodize)
+# Demethodize [![Build Status](https://travis-ci.org/nickb1080/demethodize.svg?branch=master)](https://travis-ci.org/nickb1080/demethodize) [![codecov.io](https://codecov.io/github/nickb1080/demethodize/coverage.svg?branch=master)](https://codecov.io/github/nickb1080/demethodize?branch=master)
+
+
 
 `npm install demethodize`
 
