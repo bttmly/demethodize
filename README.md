@@ -6,31 +6,33 @@
 
 Demethodizing allows you to use methods as generics. You can just use call and apply to do this, like so:
 ```js
-Array.prototype.map.call( 'abcdef', function ( letter ) {
+Array.prototype.map.call('abcdef', function (letter) {
   return letter.toUpperCase();
 }); // ['A', 'B', 'C', 'D', 'E', 'F']
 ```
 This is kind of verbose if you're using it a lot. `Array.prototype.map` can be simply substituted with `[].map`. This gets even easier still with demethodize, which produces reusable functions.
 
 ```js
-var map = demethodize( [].map );
-map( 'abcdef', function ( letter ) {
+var map = demethodize([].map);
+
+// strings have length like arrays
+map('abcdef', function (letter) {
   return letter.toUpperCase();
 }); // ['A', 'B', 'C', 'D', 'E', 'F']
 
-map( '123456', function ( n) {
-  return Number( n ) + 1;
+map('123456', function ( n) {
+  return Number(n) + 1;
 }); // [2, 3, 4, 5, 6, 7]
 ```
 
 There's an added method, `demethodize.functional`, which switches the object being operated on to the last position in the arguments array (rather than first). This is great for partial application and functional programming in general.
 
 ```js
-var slice = demethodize.functional( [].slice );
-var dropFirstAndLastTwo = slice.bind( null, 2, -2 );
+var slice = demethodize.functional([].slice);
+var dropFirstAndLastTwo = slice.bind(null, 2, -2);
 
-dropFirstAndLastTwo( 'abcdefgh' ); // ['c', 'd', 'e', 'f']
-dropFirstAndLastTwo( 'ijklm' ); // ['k']
+dropFirstAndLastTwo('abcdefgh'); // ['c', 'd', 'e', 'f']
+dropFirstAndLastTwo('ijklm'); // ['k']
 ```
 
 I've benchmarked a number of equivalent implementations for speed, and am using an implementation with `.apply()` as it is fastest. (Actually, more recent tests show the call-spread implementation to be fastest, but it's not completely generalizable)
