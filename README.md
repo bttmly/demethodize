@@ -1,6 +1,4 @@
-# Demethodize [![Build Status](https://travis-ci.org/nickb1080/demethodize.svg?branch=master)](https://travis-ci.org/nickb1080/demethodize) [![codecov.io](https://codecov.io/github/nickb1080/demethodize/coverage.svg?branch=master)](https://codecov.io/github/nickb1080/demethodize?branch=master)
-
-
+# Demethodize
 
 `npm install demethodize`
 
@@ -14,28 +12,29 @@ This is kind of verbose if you're using it a lot. `Array.prototype.map` can be s
 
 ```js
 var map = demethodize([].map);
-
-// strings have length like arrays
 map('abcdef', function (letter) {
   return letter.toUpperCase();
 }); // ['A', 'B', 'C', 'D', 'E', 'F']
 
-map('123456', function ( n) {
+map('123456', function (n) {
   return Number(n) + 1;
 }); // [2, 3, 4, 5, 6, 7]
 ```
 
-There's an added method, `demethodize.functional`, which switches the object being operated on to the last position in the arguments array (rather than first). This is great for partial application and functional programming in general.
+There's an added method, `demethodize.functional`. This takes all the arguments that would be supplied to the method, then returns _another_ function. Pass the context into that function. See below for an example. This is great for partial application and functional programming in general.
 
 ```js
 var slice = demethodize.functional([].slice);
-var dropFirstAndLastTwo = slice.bind(null, 2, -2);
 
+// pass args here
+var dropFirstAndLastTwo = slice(2, -2);
+
+// then pass the context (an array) here
 dropFirstAndLastTwo('abcdefgh'); // ['c', 'd', 'e', 'f']
 dropFirstAndLastTwo('ijklm'); // ['k']
 ```
 
-I've benchmarked a number of equivalent implementations for speed, and am using an implementation with `.apply()` as it is fastest. (Actually, more recent tests show the call-spread implementation to be fastest, but it's not completely generalizable)
+I've benchmarked a number of equivalent implementations for speed, and am using an implementation with `.apply()` as it is fastest.
 
 **Example benchmark output** (see bench.js for implementations)
 ```
