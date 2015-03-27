@@ -1,6 +1,6 @@
 {
   "name": "demethodize",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Decontextualize your methods",
   "main": "index.js",
   "repository": "https://github.com/nickb1080/demethodize.git",
