@@ -36,10 +36,10 @@ dropFirstAndLastTwo('ijklm'); // ['k']
 For brevity, the functional version is aliased.
 
 ```js
-var dm = require('demethodize');
-var hiToBye = dm.f("".replace)(/hi/i, "bye");
+var fdm = require('demethodize').f;
+var hiToBye = fdm("".replace)(/hi/i, "Bye");
 var greetings = ["Hi Pat", "Hi Max", "Hi Ali"];
-var goodbyes = greetings.map(hiToBye)
+greetings.map(hiToBye) // => ["Bye Pat", "Bye Max", "Bye Ali"]
 ```
 
 
