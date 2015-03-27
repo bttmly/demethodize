@@ -33,6 +33,16 @@ var dropFirstAndLastTwo = slice(2, -2);
 dropFirstAndLastTwo('abcdefgh'); // ['c', 'd', 'e', 'f']
 dropFirstAndLastTwo('ijklm'); // ['k']
 ```
+For brevity, the functional version is aliased.
+
+```js
+var dm = require('demethodize');
+var hiToBye = dm.f("".replace)(/hi/i, "bye");
+var greetings = ["Hi Pat", "Hi Max", "Hi Ali"];
+var goodbyes = greetings.map(hiToBye)
+```
+
+
 
 I've benchmarked a number of equivalent implementations for speed, and am using an implementation with `.apply()` as it is fastest.
 
